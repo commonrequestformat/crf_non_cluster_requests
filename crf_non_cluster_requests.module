@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CRF Non-Cluster Requests feature.
+ */
+
+include_once 'crf_non_cluster_requests.features.inc';
