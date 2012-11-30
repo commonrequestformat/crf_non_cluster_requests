@@ -42,7 +42,11 @@ function crf_non_cluster_requests_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'non_cluster_request',
-      'default_value' => NULL,
+      'default_value' => array(
+        0 => array(
+          'value' => ' ',
+        ),
+      ),
       'deleted' => '0',
       'description' => '',
       'display' => array(

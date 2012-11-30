@@ -25,13 +25,23 @@ function crf_non_cluster_requests_default_rules_configuration() {
             "entity" : [ "node:field-information-focal-points:0" ],
             "field" : "field_contact_email"
           }
+        },
+        { "entity_has_field" : {
+            "entity" : [ "node:field-information-focal-points:0" ],
+            "field" : "field_contact_first_name"
+          }
+        },
+        { "entity_has_field" : {
+            "entity" : [ "node:field-information-focal-points:0" ],
+            "field" : "field_contact_lastname"
+          }
         }
       ],
       "DO" : [
         { "mail" : {
             "to" : [ "node:field-information-focal-points:0:field-contact-email" ],
             "subject" : "New Request for Information (from OCHA)",
-            "message" : "Dear $cluster_contact-\\u003Efield_contact_first_name[\\u0027und\\u0027][0][\\u0027value\\u0027] $cluster_contact-\\u003Efield_contact_lastname[\\u0027und\\u0027][0][\\u0027value\\u0027],\\r\\n\\r\\nOCHA ($ocha_focal_point-\\u003Efield_first_name[\\u0027und\\u0027][0][\\u0027value\\u0027] $ocha_focal_point-\\u003Efield_last_name[\\u0027und\\u0027][0][\\u0027value\\u0027]) is requesting that you provide specific information as outlined below in the Information Request $node-\\u003Etitle.\\r\\n\\r\\ntheme(\\u0027item_list\\u0027, array(\\u0027items\\u0027 =\\u003E $content_types))\\r\\n\\r\\nKindly provide your information online: \\u003Cfront\\u003E\\r\\n\\r\\n$append_to_email\\r\\n\\r\\nKind regards,\\r\\nOCHA",
+            "message" : "Dear [node:field-information-focal-points:0:field-contact-first-name] [node:field-information-focal-points:0:field-contact-lastname],\\r\\n\\r\\nOCHA ([node:field-crf-req-contact:0:field-first-name] [node:field-crf-req-contact:0:field-last-name]) is requesting that you provide [node:field-nc-req-contents] information in the Information Request [node:title].\\r\\n\\r\\nKindly provide your information online: [node:url]\\r\\n\\r\\n[node:field-append-to-alert-email]\\r\\n\\r\\nKind regards,\\r\\nOCHA",
             "from" : [ "node:field-crf-req-contact:0:mail" ],
             "language" : [ "" ]
           }
