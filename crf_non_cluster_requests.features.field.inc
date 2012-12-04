@@ -518,6 +518,7 @@ function crf_non_cluster_requests_field_default_fields() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
+          'chf_erf' => 'CHF/ERF',
           'humanitarian_bulletin' => 'Humanitarian Bulletin',
           'pipeline_monitoring' => 'Pipeline Monitoring',
         ),
