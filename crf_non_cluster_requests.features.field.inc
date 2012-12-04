@@ -518,6 +518,7 @@ function crf_non_cluster_requests_field_default_fields() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
+          '3w_data' => '3W Data',
           'chf_erf' => 'CHF/ERF',
           'humanitarian_bulletin' => 'Humanitarian Bulletin',
           'pipeline_monitoring' => 'Pipeline Monitoring',
@@ -566,7 +567,9 @@ function crf_non_cluster_requests_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        ),
         'type' => 'options_buttons',
         'weight' => '4',
       ),
