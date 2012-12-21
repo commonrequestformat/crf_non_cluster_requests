@@ -519,6 +519,7 @@ function crf_non_cluster_requests_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           '3w_data' => '3W Data',
+          'baseline_data' => 'Baseline Data',
           'chf_erf' => 'CHF/ERF',
           'humanitarian_bulletin' => 'Humanitarian Bulletin',
           'pipeline_monitoring' => 'Pipeline Monitoring',
