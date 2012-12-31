@@ -20,7 +20,7 @@ function crf_non_cluster_requests_ctools_plugin_api() {
 function crf_non_cluster_requests_node_info() {
   $items = array(
     'non_cluster_request' => array(
-      'name' => t('Non-Cluster Request'),
+      'name' => t('Request (Non-Cluster)'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
