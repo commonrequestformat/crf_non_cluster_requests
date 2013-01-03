@@ -5,3 +5,14 @@
  */
 
 include_once 'crf_non_cluster_requests.features.inc';
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function crf_non_cluster_requests_form_non_cluster_request_node_form_alter(&$form, &$form_state, $form_id) {
+  $node = $form['#node'];
+  if (!isset($node->nid)) {  
+    $form['actions']['submit']['#value'] = t('Create & Send Info Request');
+  }
+}

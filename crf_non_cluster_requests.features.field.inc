@@ -75,7 +75,7 @@ function crf_non_cluster_requests_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_append_to_alert_email',
-      'label' => 'Append to alert email',
+      'label' => 'Append to Information Request email',
       'required' => 0,
       'settings' => array(
         'better_formats' => array(
@@ -111,10 +111,14 @@ function crf_non_cluster_requests_field_default_fields() {
         'active' => 1,
         'module' => 'text',
         'settings' => array(
+          'maxlength_js' => '',
+          'maxlength_js_enforce' => 0,
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+          'maxlength_js_truncate_html' => 0,
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '7',
+        'weight' => '8',
       ),
       'workbench_access_field' => 0,
     ),
@@ -560,7 +564,7 @@ function crf_non_cluster_requests_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_nc_req_contents',
-      'label' => 'Content Type',
+      'label' => 'Information Requested',
       'required' => 1,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -580,11 +584,11 @@ function crf_non_cluster_requests_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Append to alert email');
-  t('Content Type');
+  t('Append to Information Request email');
   t('Date');
   t('Emergencies');
   t('Information Focal Points');
+  t('Information Requested');
   t('OCHA focal point(s) for request');
 
   return $fields;
