@@ -23,3 +23,54 @@ function crf_non_cluster_requests_form_non_cluster_request_node_form_alter(&$for
     $form['field_append_to_alert_email']['#prefix'] = $help_link . '&nbsp;' . t('Show me an Information Request email example');
   }
 }
+
+
+/**
+ * Implements hook_node_insert().
+ */
+function crf_non_cluster_requests_node_insert($node) {
+  if ($node->type == 'non_cluster_request') {
+    $contacts = $node->field_information_focal_points['und'];    
+    foreach ($contacts as $contact) {
+      $contact_node = node_load($contact['target_id']);
+      $account = user_load_by_mail($contact_node->field_contact_email['und'][0]['email']);
+      if ($account) {
+        foreach ($node->field_crf_req_contact['und'] as $request_contact) {
+          $ocha_focal_point = user_load($request_contact['target_id']);
+          $params = array(
+            'node' => $node,
+            'contact' => $account,
+            'ocha_focal_point' => $ocha_focal_point,
+          );
+          drupal_mail('crf_non_cluster_requests', 'new_non_cluster_request_alert', $account->mail, $node->language, $params, $ocha_focal_point->mail);
+        }
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_mail().
+ */
+function crf_non_cluster_requests_mail($key, &$message, $params) {
+  if ($key == 'new_non_cluster_request_alert') {
+    $node = $params['node'];
+    $contact = $params['contact'];
+    $ocha_focal_point = $params['ocha_focal_point'];    
+    $content_types = array($node->field_nc_req_contents['und'][0]['value']);
+    
+    $append_to_email = !empty($node->field_append_to_alert_email['und']) ? $node->field_append_to_alert_email['und'][0]['value'] : '';
+
+    $body = '<p>Dear ' . $contact->field_first_name['und'][0]['value'] . ' ' . $contact->field_last_name['und'][0]['value'] . ',</p>';
+    $body .= '<p>OCHA (' . $ocha_focal_point->field_first_name['und'][0]['value'] . ' ' . $ocha_focal_point->field_last_name['und'][0]['value'] . ') is requesting that you provide specific information as outlined below in the Information Request ' . $node->title . '.</p>';
+    $body .= '<p>' . theme('item_list', array('items' => $content_types)) . '</p>';
+    $body .= '<p>Kindly provide your information online: ' . url("<front>", array("absolute" => TRUE)) . '</p>';
+    $body .= '<p>' . $append_to_email . '</p>';
+    $body .= '<p>Kind regards,' . '<br />';
+    $body .= 'OCHA</p>';
+
+    $message['subject'] = t('New Request for Information (from OCHA)');
+    $message['body'][] = drupal_html_to_text($body);
+  }
+}

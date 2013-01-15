@@ -26,7 +26,6 @@ features[field][] = node-non_cluster_request-field_emergencies
 features[field][] = node-non_cluster_request-field_information_focal_points
 features[field][] = node-non_cluster_request-field_nc_req_contents
 features[node][] = non_cluster_request
-features[rules_config][] = rules_new_non_cluster_request
 features[user_permission][] = create non_cluster_request content
 features[user_permission][] = delete any non_cluster_request content
 features[user_permission][] = delete own non_cluster_request content
