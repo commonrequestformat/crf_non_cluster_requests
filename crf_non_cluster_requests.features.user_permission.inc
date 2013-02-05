@@ -14,8 +14,8 @@ function crf_non_cluster_requests_user_default_permissions() {
   $permissions['create non_cluster_request content'] = array(
     'name' => 'create non_cluster_request content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
+      'administrator' => 'administrator',
+      'manager' => 'manager',
     ),
     'module' => 'node',
   );
@@ -24,8 +24,8 @@ function crf_non_cluster_requests_user_default_permissions() {
   $permissions['delete any non_cluster_request content'] = array(
     'name' => 'delete any non_cluster_request content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
+      'administrator' => 'administrator',
+      'manager' => 'manager',
     ),
     'module' => 'node',
   );
@@ -34,8 +34,8 @@ function crf_non_cluster_requests_user_default_permissions() {
   $permissions['delete own non_cluster_request content'] = array(
     'name' => 'delete own non_cluster_request content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
+      'administrator' => 'administrator',
+      'manager' => 'manager',
     ),
     'module' => 'node',
   );
@@ -44,8 +44,8 @@ function crf_non_cluster_requests_user_default_permissions() {
   $permissions['edit any non_cluster_request content'] = array(
     'name' => 'edit any non_cluster_request content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
+      'administrator' => 'administrator',
+      'manager' => 'manager',
     ),
     'module' => 'node',
   );
@@ -54,8 +54,8 @@ function crf_non_cluster_requests_user_default_permissions() {
   $permissions['edit own non_cluster_request content'] = array(
     'name' => 'edit own non_cluster_request content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
+      'administrator' => 'administrator',
+      'manager' => 'manager',
     ),
     'module' => 'node',
   );
@@ -64,8 +64,8 @@ function crf_non_cluster_requests_user_default_permissions() {
   $permissions['view any unpublished non_cluster_request content'] = array(
     'name' => 'view any unpublished non_cluster_request content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
+      'administrator' => 'administrator',
+      'manager' => 'manager',
     ),
     'module' => 'view_unpublished',
   );

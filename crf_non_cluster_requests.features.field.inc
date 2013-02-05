@@ -36,7 +36,9 @@ function crf_non_cluster_requests_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+      ),
       'translatable' => '0',
       'type' => 'text_long',
     ),
@@ -104,6 +106,7 @@ function crf_non_cluster_requests_field_default_fields() {
             ),
           ),
         ),
+        'entity_translation_sync' => FALSE,
         'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
@@ -151,6 +154,7 @@ function crf_non_cluster_requests_field_default_fields() {
       'locked' => '0',
       'module' => 'entityreference',
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'handler' => 'base',
         'handler_settings' => array(
           'behaviors' => array(
@@ -203,6 +207,7 @@ function crf_non_cluster_requests_field_default_fields() {
       'label' => 'OCHA focal point(s) for request',
       'required' => 1,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -237,6 +242,7 @@ function crf_non_cluster_requests_field_default_fields() {
       'settings' => array(
         'cache_count' => '4',
         'cache_enabled' => 0,
+        'entity_translation_sync' => FALSE,
         'granularity' => array(
           'day' => 'day',
           'hour' => 0,
@@ -294,6 +300,7 @@ function crf_non_cluster_requests_field_default_fields() {
         'default_value2' => 'same',
         'default_value_code' => '',
         'default_value_code2' => '',
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -347,6 +354,7 @@ function crf_non_cluster_requests_field_default_fields() {
             'parent' => '0',
           ),
         ),
+        'entity_translation_sync' => FALSE,
       ),
       'translatable' => '0',
       'type' => 'taxonomy_term_reference',
@@ -385,6 +393,7 @@ function crf_non_cluster_requests_field_default_fields() {
       'label' => 'Emergencies',
       'required' => 1,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -425,6 +434,7 @@ function crf_non_cluster_requests_field_default_fields() {
       'locked' => '0',
       'module' => 'entityreference',
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'handler' => 'base',
         'handler_settings' => array(
           'behaviors' => array(
@@ -480,6 +490,7 @@ function crf_non_cluster_requests_field_default_fields() {
       'label' => 'Information Focal Points',
       'required' => 1,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -529,6 +540,7 @@ function crf_non_cluster_requests_field_default_fields() {
           'pipeline_monitoring' => 'Pipeline Monitoring',
         ),
         'allowed_values_function' => '',
+        'entity_translation_sync' => FALSE,
       ),
       'translatable' => '0',
       'type' => 'list_text',
@@ -567,6 +579,7 @@ function crf_non_cluster_requests_field_default_fields() {
       'label' => 'Information Requested',
       'required' => 1,
       'settings' => array(
+        'entity_translation_sync' => FALSE,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
