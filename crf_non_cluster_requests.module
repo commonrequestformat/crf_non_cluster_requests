@@ -65,8 +65,8 @@ function crf_non_cluster_requests_mail($key, &$message, $params) {
     $body = '<p>Dear ' . $contact->field_first_name['und'][0]['value'] . ' ' . $contact->field_last_name['und'][0]['value'] . ',</p>';
     $body .= '<p>OCHA (' . $ocha_focal_point->field_first_name['und'][0]['value'] . ' ' . $ocha_focal_point->field_last_name['und'][0]['value'] . ') is requesting that you provide specific information as outlined below in the Information Request ' . $node->title . '.</p>';
     $body .= '<p>' . theme('item_list', array('items' => $content_types)) . '</p>';
-    $body .= '<p>Kindly provide your information online: ' . url("<front>", array("absolute" => TRUE)) . '</p>';
     $body .= '<p>' . $append_to_email . '</p>';
+    $body .= '<p>Kindly provide your information online: ' . url("<front>", array("absolute" => TRUE)) . '</p>';
     $body .= '<p>Kind regards,' . '<br />';
     $body .= 'OCHA</p>';
 
