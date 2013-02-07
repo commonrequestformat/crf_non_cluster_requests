@@ -27,6 +27,7 @@ features[field][] = node-non_cluster_request-field_crf_req_date
 features[field][] = node-non_cluster_request-field_emergencies
 features[field][] = node-non_cluster_request-field_information_focal_points
 features[field][] = node-non_cluster_request-field_nc_req_contents
+features[field][] = node-non_cluster_request-field_request_deadline
 features[node][] = non_cluster_request
 features[user_permission][] = create non_cluster_request content
 features[user_permission][] = delete any non_cluster_request content
