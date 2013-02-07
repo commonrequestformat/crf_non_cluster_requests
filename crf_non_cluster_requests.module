@@ -58,7 +58,12 @@ function crf_non_cluster_requests_mail($key, &$message, $params) {
     $node = $params['node'];
     $contact = $params['contact'];
     $ocha_focal_point = $params['ocha_focal_point'];    
-    $content_types = array($node->field_nc_req_contents['und'][0]['value']);
+    
+    $content_types = array();
+    $content_type_names = node_type_get_names();    
+    foreach ($node->field_nc_req_contents['und'] as $content_type) {
+      $content_types[] = $content_type_names[$content_type['value']];
+    }
     
     $append_to_email = !empty($node->field_append_to_alert_email['und']) ? $node->field_append_to_alert_email['und'][0]['value'] : '';
 
@@ -69,8 +74,12 @@ function crf_non_cluster_requests_mail($key, &$message, $params) {
     $body .= '<p>Kindly provide your information online: ' . url("<front>", array("absolute" => TRUE)) . '</p>';
     $body .= '<p>Kind regards,' . '<br />';
     $body .= 'OCHA</p>';
-
-    $message['subject'] = t('New Request for Information (from OCHA)');
+    
+    $message['subject'] = t('New Request for @content_types (from OCHA)', array('@content_types' => implode(',', $content_types)));
+    if (isset($node->field_request_deadline['und'][0]['value'])) {
+      $message['subject'] .= t(' - requested by @deadline', array('@deadline' => format_date(strtotime($node->field_request_deadline['und'][0]['value']), 'request')));
+    }
+    
     $message['body'][] = drupal_html_to_text($body);
   }
 }
