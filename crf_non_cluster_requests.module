@@ -30,19 +30,21 @@ function crf_non_cluster_requests_form_non_cluster_request_node_form_alter(&$for
  */
 function crf_non_cluster_requests_node_insert($node) {
   if ($node->type == 'non_cluster_request') {
-    $contacts = $node->field_information_focal_points['und'];    
-    foreach ($contacts as $contact) {
-      $contact_node = node_load($contact['target_id']);
-      $account = user_load_by_mail($contact_node->field_contact_email['und'][0]['email']);
-      if ($account) {
-        foreach ($node->field_crf_req_contact['und'] as $request_contact) {
-          $ocha_focal_point = user_load($request_contact['target_id']);
-          $params = array(
-            'node' => $node,
-            'contact' => $account,
-            'ocha_focal_point' => $ocha_focal_point,
-          );
-          drupal_mail('crf_non_cluster_requests', 'new_non_cluster_request_alert', $account->mail, $node->language, $params, $ocha_focal_point->mail);
+    if (isset($node->field_crf_req_contact['und']) && isset($node->field_information_focal_points['und'])) {
+      $contacts = $node->field_information_focal_points['und'];    
+      foreach ($contacts as $contact) {
+        $contact_node = node_load($contact['target_id']);
+        $account = user_load_by_mail($contact_node->field_contact_email['und'][0]['email']);
+        if ($account) {
+          foreach ($node->field_crf_req_contact['und'] as $request_contact) {
+            $ocha_focal_point = user_load($request_contact['target_id']);
+            $params = array(
+              'node' => $node,
+              'contact' => $account,
+              'ocha_focal_point' => $ocha_focal_point,
+            );
+            drupal_mail('crf_non_cluster_requests', 'new_non_cluster_request_alert', $account->mail, $node->language, $params, $ocha_focal_point->mail);
+          }
         }
       }
     }
