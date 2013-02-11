@@ -220,7 +220,7 @@ function crf_non_cluster_requests_field_default_fields() {
         'settings' => array(
           'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         ),
-        'type' => 'options_select',
+        'type' => 'options_buttons',
         'weight' => '6',
       ),
       'workbench_access_field' => 0,
