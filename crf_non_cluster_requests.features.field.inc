@@ -155,17 +155,18 @@ function crf_non_cluster_requests_field_default_fields() {
       'module' => 'entityreference',
       'settings' => array(
         'entity_translation_sync' => FALSE,
-        'handler' => 'base',
+        'handler' => 'views',
         'handler_settings' => array(
           'behaviors' => array(
             'views-select-list' => array(
               'status' => 0,
             ),
           ),
-          'sort' => array(
-            'type' => 'none',
+          'view' => array(
+            'args' => array(),
+            'display_name' => 'entityreference_1',
+            'view_name' => 'ocha_focal_points',
           ),
-          'target_bundles' => array(),
         ),
         'handler_submit' => 'Change handler',
         'target_type' => 'user',
@@ -175,6 +176,7 @@ function crf_non_cluster_requests_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'non_cluster_request',
+      'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -203,6 +205,8 @@ function crf_non_cluster_requests_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
+      'entityconnect_unload_add' => '0',
+      'entityconnect_unload_edit' => '0',
       'field_name' => 'field_crf_req_contact',
       'label' => 'OCHA focal point(s) for request',
       'required' => 1,
@@ -212,12 +216,11 @@ function crf_non_cluster_requests_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'entityreference_view_widget',
+        'module' => 'options',
         'settings' => array(
-          'pass_argument' => 0,
-          'view' => 'ocha_focal_points|entityreference_view_widget_1',
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         ),
-        'type' => 'entityreference_view_widget',
+        'type' => 'options_select',
         'weight' => '6',
       ),
       'workbench_access_field' => 0,
