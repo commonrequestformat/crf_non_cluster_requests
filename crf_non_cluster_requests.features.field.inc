@@ -504,7 +504,7 @@ function crf_non_cluster_requests_field_default_fields() {
           'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         ),
         'type' => 'options_buttons',
-        'weight' => '7',
+        'weight' => '8',
       ),
       'workbench_access_field' => 0,
     ),
@@ -792,7 +792,7 @@ function crf_non_cluster_requests_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'entityreference_autocomplete',
-        'weight' => '6',
+        'weight' => '7',
       ),
       'workbench_access_field' => 0,
     ),
@@ -950,7 +950,7 @@ function crf_non_cluster_requests_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_request_deadline',
-      'label' => 'Deadline',
+      'label' => 'Deadline for information submission',
       'required' => 0,
       'settings' => array(
         'default_value' => 'blank',
@@ -973,7 +973,7 @@ function crf_non_cluster_requests_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_select',
-        'weight' => '10',
+        'weight' => '6',
       ),
       'workbench_access_field' => 0,
     ),
@@ -984,7 +984,7 @@ function crf_non_cluster_requests_field_default_fields() {
   t('Append to Information Request email');
   t('CHF/ERF');
   t('Date');
-  t('Deadline');
+  t('Deadline for information submission');
   t('Emergencies');
   t('Information Focal Points');
   t('Information Requested');
