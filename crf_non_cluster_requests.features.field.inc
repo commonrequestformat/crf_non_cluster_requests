@@ -503,7 +503,7 @@ function crf_non_cluster_requests_field_default_fields() {
         'settings' => array(
           'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         ),
-        'type' => 'options_buttons',
+        'type' => 'options_select',
         'weight' => '8',
       ),
       'workbench_access_field' => 0,
@@ -686,7 +686,7 @@ function crf_non_cluster_requests_field_default_fields() {
         'active' => 1,
         'module' => 'options',
         'settings' => array(),
-        'type' => 'options_buttons',
+        'type' => 'options_select',
         'weight' => '3',
       ),
       'workbench_access_field' => 0,
@@ -772,8 +772,10 @@ function crf_non_cluster_requests_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
+      'entityconnect_unload_add' => '0',
+      'entityconnect_unload_edit' => '0',
       'field_name' => 'field_information_focal_points',
-      'label' => 'Information Focal Points',
+      'label' => 'Request Information From',
       'required' => 1,
       'settings' => array(
         'entity_translation_sync' => FALSE,
@@ -781,17 +783,14 @@ function crf_non_cluster_requests_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'entityreference',
+        'module' => 'options',
         'settings' => array(
           'match_operator' => 'CONTAINS',
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
           'path' => '',
-          'references_dialog_add' => 0,
-          'references_dialog_edit' => 0,
-          'references_dialog_search' => 0,
-          'references_dialog_search_view' => '',
           'size' => '60',
         ),
-        'type' => 'entityreference_autocomplete',
+        'type' => 'options_select',
         'weight' => '7',
       ),
       'workbench_access_field' => 0,
@@ -986,11 +985,11 @@ function crf_non_cluster_requests_field_default_fields() {
   t('Date');
   t('Deadline for information submission');
   t('Emergencies');
-  t('Information Focal Points');
   t('Information Requested');
   t('Instructions');
   t('Link');
   t('OCHA focal point(s) for request');
+  t('Request Information From');
 
   return $fields;
 }
